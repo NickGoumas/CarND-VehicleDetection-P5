@@ -16,15 +16,15 @@
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points 
 
 ---
-###Writeup / README
+### Writeup / README
 
-####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.
+#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.
 
 Below I will explain how I implemented each part of the project as required by the rubric.
 
-###Histogram of Oriented Gradients (HOG)
+### Histogram of Oriented Gradients (HOG)
 
-####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
+#### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
 In the file 'train_classifier.py' under the 'Classifier' class there is a method called 'hog_features' starting on line 53. To exctract the HOG features from the training images first two lists are generated. One list of vehicle filenames and one list of non-vehicle filenames. 
 
