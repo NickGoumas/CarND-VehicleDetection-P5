@@ -26,38 +26,38 @@ Below I will explain how I implemented each part of the project as required by t
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-In the file 'train_classifier.py' under the 'Classifier' class there is a method called 'hog_features' starting on line 53. To exctract the HOG features from the training images first two lists are generated. One list of vehicle filenames and one list of non-vehicle filenames. 
+In the file 'train_classifier.py' under the 'Classifier' class there is a method called 'hog_features' starting on line 53. To exctract the HOG features from the training images first two lists are generated. One list of vehicle filenames and one list of non-vehicle filenames. Once each of the lists are generated they are sent through the 'hog_features' method which uses the 'skimage.hog()' function. The hog features are returned as a single vector of results for training.
 
-Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+Here is an example of one of each of the `vehicle` and `non-vehicle` classes represented as an array:
 
 ![alt text][image1]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  In the end I used a simple pipline of converting the image to grayscale before passing it to the 'hog_features()' function.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `GRAY` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
 ![alt text][image2]
 
-####2. Explain how you settled on your final choice of HOG parameters.
+#### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I tried various parameters to balance distinct features with minimal memory taxation. Increasing the parameters too much taxed my system and caused memory errors. PCA was attemted to reduce the amount of features but the accuracy of the classifier was effected too much.
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+#### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+The first thing I did in order to save time was extract all the features I wanted and save them to a pickle file. This allowed me to do the feature extraction once, which took some time, and experiment with training the algorithm later. At line 141 in 'train_classifier.py' I have the 'fit_classifier()' fuction that trains the LinearSVM classifier using the 'train_test_split()' function. This allows some of the testing data to be left out of training to be used as a benchmark for the classifier.
 
-###Sliding Window Search
+### Sliding Window Search
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+#### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+At line 25 of 'car_detect_pipeline.py' you'll see the 'search_frame()' fuciton. Here I started with the code from the sliding windows lesson and manipulated the parameters through experimentation. I also opened the test images in an image editing program and determined the space I wanted to search, and rough starting values for my search boxes. Once I had the pipeline working I tweaked the parameters to try to help with anomalies. 
 
 ![alt text][image3]
 
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
+#### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+At first I started with HOG features, spatially binned features as well as the color histograms. I thought more features would make the classifier work well but in the end I only used the HOG features. Using the other groups caused too many false positives. It was also very memory intensive and I couldn't test as many classifier algorithms as I wanted. In the end HOG with some frame averaging seems to work well.
 
 ![alt text][image4]
 ---
