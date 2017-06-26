@@ -8,10 +8,11 @@
 [image2]: ./writeup_pics/gray_HOG.png
 [image3]: ./writeup_pics/search_windows.png
 [image4]: ./writeup_pics/predicted_search_windows.png
+[image5]: ./writeup_pics/six_frames.png
+[image6]: ./writeup_pics/six_heatmaps.png
+[image7]: ./writeup_pics/six_labels.png
+[image8]: ./writeup_pics/six_frame_output.png
 
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points 
@@ -80,12 +81,13 @@ Here's an example result showing the heatmap from a series of frames of video, t
 ### Here are six frames and their corresponding heatmaps:
 
 ![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
 ![alt text][image6]
 
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
+### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
 ![alt text][image7]
+
+### Here the resulting bounding boxes are drawn onto the last frame in the series:
+![alt text][image8]
 
 
 
