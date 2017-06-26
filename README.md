@@ -42,7 +42,7 @@ Here is an example using the `GRAY` color space and HOG parameters of `orientati
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various parameters to balance distinct features with minimal memory taxation. Increasing the parameters too much taxed my system and caused memory errors. PCA was attemted to reduce the amount of features but the accuracy of the classifier was effected too much.
+I tried various parameters to balance distinct features with minimal memory taxation. Increasing the parameters too much taxed my system and caused memory errors. PCA was attemted to reduce the amount of features but the accuracy of the classifier was effected too much. In the end I simply increased the orientation to 11, used a pixel per cell of 8 and a cell per block of 2. This seemed to give enough detail why still allowing my computer to train the model. 
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
