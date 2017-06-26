@@ -70,7 +70,7 @@ At first I started with HOG features, spatially binned features as well as the c
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result][video1]
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
