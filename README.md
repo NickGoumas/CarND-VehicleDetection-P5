@@ -6,8 +6,8 @@
 [//]: # (Image References)
 [image1]: ./writeup_pics/cars_not_cars.png
 [image2]: ./writeup_pics/gray_HOG.png
+[image3]: ./writeup_pics/search_windows.png
 
-[image3]: ./examples/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
@@ -37,7 +37,6 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 
 Here is an example using the `GRAY` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
-
 ![alt text][image2]
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
@@ -52,7 +51,11 @@ The first thing I did in order to save time was extract all the features I wante
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-At line 25 of 'car_detect_pipeline.py' you'll see the 'search_frame()' fuciton. Here I started with the code from the sliding windows lesson and manipulated the parameters through experimentation. I also opened the test images in an image editing program and determined the space I wanted to search, and rough starting values for my search boxes. Once I had the pipeline working I tweaked the parameters to try to help with anomalies. 
+At line 25 of 'car_detect_pipeline.py' you'll see the 'search_frame()' fuciton. Here I started with the code from the sliding windows lesson. For my initial parameters I used a photo editing program to open the test images and measure some windows that may find a car in the scene. With these parameters I then went on to my next approach.
+
+To start tuning my search windows I added a function that would generate an extra video stream showing all of the positively predicted search windows, 'hot_boxes', in real time. I concatenated this video along with two different heatmaps to the right of the main video. I overlayed the 'hot_boxes' on the video in colors according to their shapes. This way I could experiment with three shapes, red, green and blue. This allowed me to watch which windows were doing the work and which were lacking. It also allowed me to pinpoint sections of the video that were causing problems.
+
+Below is an example of my sliding window search from when I was experimenting with size and location of the windows. In this experimentation I also color coded the drawn boxes.
 
 ![alt text][image3]
 
