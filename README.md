@@ -13,7 +13,7 @@
 [image7]: ./writeup_pics/six_labels.png
 [image8]: ./writeup_pics/six_frame_output.png
 
-[video1]: ./project_video.mp4
+[video1]: ./output_project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points 
 
