@@ -4,7 +4,8 @@
 
 
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
+[image1]: ./writeup_pics/cars_not_cars.png
+
 [image2]: ./examples/HOG_example.jpg
 [image3]: ./examples/sliding_windows.jpg
 [image4]: ./examples/sliding_window.jpg
