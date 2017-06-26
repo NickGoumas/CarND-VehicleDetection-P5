@@ -7,8 +7,8 @@
 [image1]: ./writeup_pics/cars_not_cars.png
 [image2]: ./writeup_pics/gray_HOG.png
 [image3]: ./writeup_pics/search_windows.png
+[image4]: ./writeup_pics/predicted_search_windows.png
 
-[image4]: ./examples/sliding_window.jpg
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
@@ -61,7 +61,7 @@ Below is an example of my sliding window search from when I was experimenting wi
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-At first I started with HOG features, spatially binned features as well as the color histograms. I thought more features would make the classifier work well but in the end I only used the HOG features. Using the other groups caused too many false positives. It was also very memory intensive and I couldn't test as many classifier algorithms as I wanted. In the end HOG with some frame averaging seems to work well.
+At first I started with HOG features, spatially binned features as well as the color histograms. I thought more features would make the classifier work well but in the end I only used the HOG features. Using the other groups caused too many false positives. It was also very memory intensive and I couldn't test as many classifier algorithms as I wanted. In the end HOG with some frame averaging seems to work well. Below is the same frame image as above, only with the prediction classifier run over the sliding window search. As you can see it picks up the cars fairly well. This is before any averaging or heatmaps are used.
 
 ![alt text][image4]
 ---
