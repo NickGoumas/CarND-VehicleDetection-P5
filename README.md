@@ -30,7 +30,7 @@ Below I will explain how I implemented each part of the project as required by t
 
 In the file 'train_classifier.py' under the 'Classifier' class there is a method called 'hog_features()' starting on line 53. To exctract the HOG features from the training images first two lists are generated. One list of vehicle filenames and one list of non-vehicle filenames. Once each of the lists are generated they are sent through the 'hog_features' method which uses the 'skimage.hog()' function. The hog features are returned as a single vector of results for training.
 
-Here is an example of some images from of each of the `vehicle` and `non-vehicle` classes represented as an array:
+Here is an example of some images from of each of the `vehicle` and `non-vehicle` classes:
 
 ![alt text][image1]
 
